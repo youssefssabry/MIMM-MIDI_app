@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="200dp"
+            android:text="Piano"
+            android:layout_marginTop="80dp"
+            android:id="@+id/piano"
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="200dp"
+            android:text="Guitar"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/guitar"
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="200dp"
+            android:text="Sax"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/brass"
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="200dp"
+            android:text="Bass"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/bass"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/UploadMusic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:text="Share" />
+
+        <!--<Button-->
+            <!--android:id="@+id/UploadMusic"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Share" />-->
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
