@@ -16,12 +16,12 @@ import retrofit2.http.Part;
 public interface APIInterface {
 
     //the base URL for our API
-    String BASE_URL = "http://192.168.1.105/ImageUploadApi/";
+    String BASE_URL = "http://192.168.0.10/ImageUploadApi/";
 
     //this is our multipart request
     @Multipart
     @POST("Api.php?apicall=upload")
-    Call<MyResponse> uploadImage(@Part("image\"; filename=\"myfile.mid\" ") RequestBody file, @Part("desc") RequestBody desc);
+  Call<MyResponse> uploadImage(@Part("image\"; filename=\"myfile.mid\" ") RequestBody file, @Part("desc") RequestBody desc);
 
 
     @GET("Api.php?apicall=getallimages")

@@ -24,19 +24,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private static final String TAG ="MainActivityProg" ;
     Button loginButton;
-    EditText EmailField;
-    EditText PasswordField;
-
+    EditText EmailField, PasswordField;
     String EmailNew;
-
-
-    private String LoginEmail="Ahmed@gmail.com";
-    private String LoginPassword="123";
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String EmailNew=EmailField.getText().toString();
         String Password=PasswordField.getText().toString();
 
-
-
-
-
-
         //The gson builder
         Gson gson = new GsonBuilder()
                 .setLenient()
@@ -83,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        Log.v(TAG, "Ok 1");
         //creating our api
         APIInterface api = retrofit.create(APIInterface.class);
         Call<CredCheck> call = api.checkCred(EmailNew,Password);
@@ -91,15 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(Call<CredCheck> call, Response<CredCheck> response) {
 
-                Log.v(TAG, "Ok 2");
                 if(response.code()==200) {
 
-                    Log.v(TAG, "Ok 3");
                     CredCheck resource = response.body();
 
-                    Log.v(TAG, "Ok 1"+resource);
                     if(resource.message){
-                        EnterTheProgramNow();
+                        EnterTheProgram();
                     }else{
 
                         Toast.makeText(MainActivity.this,"You are not Allowed to login",Toast.LENGTH_LONG).show();
@@ -118,15 +99,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void EnterTheProgramNow() {
-
-
-
-        Log.v(TAG," Hi !!");
+    private void EnterTheProgram() {
 
         Intent openNewActivity=new Intent(MainActivity.this,RunningActivity.class);
         openNewActivity.putExtra("wael",EmailNew);
-
         startActivity(openNewActivity);
     }
 }

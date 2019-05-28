@@ -54,14 +54,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RunningActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivityProg2" ;
-
     Button getDataFromServerButton;
-
-    Button uploadImageButton;
-
     Button makeMusicButton;
-
     APIInterface apiInterface;
 
     private RecyclerView recyclerView;
@@ -73,11 +67,9 @@ public class RunningActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_running);
         Intent getLAstIntentData=getIntent();
+        String dataLast=getLAstIntentData.getStringExtra("email");
 
-
-        String dataLast=getLAstIntentData.getStringExtra("wael");
-        final String sameh = dataLast;
-
+        final String useremail = dataLast;
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
@@ -86,15 +78,9 @@ public class RunningActivity extends AppCompatActivity {
         getDataFromServerButton=(Button)findViewById(R.id.getDataButton);
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(false);
-
-        // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-
 
 
         getDataFromServerButton.setOnClickListener(new View.OnClickListener() {
@@ -145,9 +131,6 @@ public class RunningActivity extends AppCompatActivity {
 
                             }
 
-                            //arrayAdapter.notifyDataSetChanged();
-                            Log.v(TAG, displayResponse);
-
                         }else{
                             Toast.makeText(getApplicationContext(), "Error in Retrieving...", Toast.LENGTH_LONG).show();
 
@@ -169,7 +152,7 @@ public class RunningActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goMakeMusicActivity=new Intent(RunningActivity.this,CreationActivity.class);
-                goMakeMusicActivity.putExtra("sameh",sameh);
+                goMakeMusicActivity.putExtra("email",useremail);
 
                 startActivity(goMakeMusicActivity);
             }

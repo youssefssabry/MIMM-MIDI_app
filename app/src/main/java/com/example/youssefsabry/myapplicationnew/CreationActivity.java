@@ -42,7 +42,6 @@ public class CreationActivity extends AppCompatActivity {
     Button saxButton;
     Button bassButton;
     Button uploadButton;
-    Button saveButton;
     ArrayList<Integer> list;
 
 
@@ -130,7 +129,7 @@ public class CreationActivity extends AppCompatActivity {
             long tick = i * 480;
             long duration = 120;
 
-            
+
             if(list.get(i)==0)
                 noteTrackP.insertNote(0, pitch, velocity, tick, duration);
 
